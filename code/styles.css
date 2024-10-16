@@ -1,0 +1,283 @@
+/* Efecto de desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background-color: #fff1f3;
+    color: #5a3d55;
+    line-height: 1.6;
+    background-image: url('background-pattern.png'); /* Un fondo con un patrón suave, por ejemplo, de corazones o flores */
+    background-size: cover;
+}
+
+header {
+    background-color: #ffccd5;
+    color: #5a3d55;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid #f08080;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-family: 'Cursive', sans-serif;
+    color: #db7093;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #5a3d55;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #ffc2d1;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ff8a8a;
+}
+
+section {
+    padding: 30px;
+    margin: 20px;
+    background-color: #ffe5e5;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f08080;
+    position: relative;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ff6f91;
+    font-family: 'Cursive', sans-serif;
+}
+
+section p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #5a3d55;
+}
+
+.poem {
+    margin-top: 20px;
+    font-style: italic;
+    background-color: #ffc2d1;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px dashed #ff6f91;
+}
+
+.poem p {
+    font-size: 1.4rem;
+    color: #5a3d55;
+    line-height: 2;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between gallery items */
+}
+
+.gallery img {
+    width: 30%;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid #ff8a8a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+/* Animación de desvanecimiento para secciones */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #ffccd5;
+    color: #5a3d55;
+    border-top: 3px solid #f08080;
+    margin-top: 30px;
+}
+
+footer p {
+    font-size: 1.2rem;
+}
+
+/* Estilos adicionales de decoración */
+section::before {
+    content: '❤️';
+    font-size: 3rem;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    color: #ff6f91;
+}
+
+section::after {
+    content: '❤️';
+    font-size: 3rem;
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    color: #ff6f91;
+}
+
+/* General section styling */
+#poemas-momentos {
+    padding: 30px;
+    background-color: #fff1f3;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f08080;
+    text-align: center;
+    height: 800px;
+}
+
+#poemas-momentos h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #ff6f91;
+    font-family: 'Cursive', sans-serif;
+}
+
+/* Gallery styling with additional spacing for better layout */
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.flip-container {
+    perspective: 1000px;
+    width: 30%;  /* Adjust based on how many images you want per row */
+    height: auto;  /* Allows height to adjust based on content */
+    margin: 10px;   /* Space between cards */
+}
+
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-container:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensuring the image fits perfectly in the card */
+.front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Makes sure the image covers the entire card without distortion */
+    border-radius: 12px;  /* Rounded corners like the card */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    backface-visibility: hidden;
+    
+}
+
+
+/* Styling for the back side (poem) */
+.back {
+    background-color: #ffccd5;
+    color: #5a3d55;
+    transform: rotateY(180deg);
+    padding: 20px;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    border-radius: 12px;
+    border: 2px solid #ff8a8a;
+    overflow-y: auto; /* Allows scrolling if content is too tall */
+    max-width: 300px; /* Max width to prevent overflow */
+    height: auto; /* Allows height to adjust based on content */
+
+}
+
+
+
+#playlist {
+    padding: 30px;
+    background-color: #fbe8e7;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px solid #ff8a8a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#playlist h2 {
+    font-size: 2.5rem;
+    color: #ff6f91;
+    font-family: 'Cursive', sans-serif;
+    margin-bottom: 20px;
+}
+
+#playlist p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #5a3d55;
+}
+
+/* You can adjust the size of the YouTube embed here if needed */
+iframe {
+    width: 100%;
+    max-width: 560px; /* Limit max width to maintain responsiveness */
+    height: 315px;  /* You can adjust height as per design */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
